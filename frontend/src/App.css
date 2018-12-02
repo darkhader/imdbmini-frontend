@@ -1,0 +1,27 @@
+body {
+  background: #dedede;
+}
+
+/* .navbar {
+  background: #ffffff;
+} */
+
+.main_content{
+  margin-top: 20px;
+}
+
+.movie_image {
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 1px 1px #aaaaaa;
+}
+
+.movie_image img{
+  margin-bottom: 10px;
+}
+
+.movie_image h5,
+.movie_image p{
+  padding: 0 10px;
+  margin-bottom: 10px;
+}

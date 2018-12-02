@@ -6,7 +6,7 @@ const movieSchema = new Schema({
 	description: { type: String},
 	image: { type: String, },
 	duration: { type: String  },
-    year: [{type: String}],
+    year: {type: String},
     review: {type: Schema.Types.ObjectId, ref: "review"},
     actor: [{type: Schema.Types.ObjectId, ref: "actor"}]
 });

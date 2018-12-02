@@ -37,7 +37,7 @@ MovieRouter.get("/", async (req, res) => {
 MovieRouter.get("/:id", async (req, res) => {
 	let movieId = req.params.id;
 	try {
-		const movieFound = await MovieModel.findById(movieId);
+		const movieFound = await MovieModel.findById(movieId).populate("actor", "name image");
 		if (!movieFound) res.status(404).json({ success: 0, message: "Not found!" })
 		else res.json({ success: 1, movie: movieFound });
 	} catch (error) {
