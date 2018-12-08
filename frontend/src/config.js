@@ -1,3 +1,4 @@
 export default {
-    rootPath: "http://localhost:9999"
+  rootPath:
+    process.env.REACT_APP_STATE === "localhost" ? "http://localhost:9999" : ""
 };

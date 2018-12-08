@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import axios from '../axios';
-
+import { ROOT_API } from '../statics';
 class TextArea extends Component {
-    _onSubmitComment = (event) => {
+    _onSubmitReview = (event) => {
         event.preventDefault();
-        const { review } = this.props;
+        const { review, movieId, userId } = this.props;
+        console.log("review", review);
         axios
-            .post(`/api/reviews/`,{
-                content: review
+        .get(`${ROOT_API}/api/auth/`)
+        .then(response => {
+            console.log("res",response.data.userFound.name)
+            // this.setState
+            axios
+            .post(`${ROOT_API}/api/reviews/`,{
+                content: review,
+                movie: movieId,
+                user: response.data.userFound.id
             })
             .then(response => {
                 console.log(response)
@@ -15,18 +23,24 @@ class TextArea extends Component {
             .catch(err => {
                 console.log(err)
             });
+        })
+        .catch(err => {
+            console.log(err)
+        });
+
+       
     }
 
     render() {
         return (
-            <form onSubmit={this._onSubmitComment}>
+            <form onSubmit={this._onSubmitReview}>
                 <div className="form-group">
                     <label>Add review: </label>
                     <textarea
                         className="form-control"
                         rows="2"
                         onChange={(event) => {
-                            this.props.updateComment(event.target.value);
+                            this.props.updateReview(event.target.value);
                         }}
                     >
                     </textarea>

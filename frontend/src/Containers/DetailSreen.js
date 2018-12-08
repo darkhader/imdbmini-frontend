@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "../axios";
-
+import { ROOT_API } from '../statics';
 import NavBar from "../Components/NavBar";
 import MovieImage from "../Components/MovieImage";
 import TextArea from "../Components/TextArea";
@@ -12,12 +12,13 @@ class DetailScreen extends Component {
 
     componentDidMount() {
         axios
-            .get(`/api/movies/${this.props.match.params.movieId}`)
+            .get(`${ROOT_API}/api/movies/${this.props.match.params.movieId}`)
             .then(response => {
                 this.setState({
-                    movie: response.data.movie
+                    movie: response.data.movie,
+                    
                 });
-                console.log(this.state.movie)
+             
             })
             .catch(err => console.error(err));
     }
@@ -32,8 +33,10 @@ class DetailScreen extends Component {
         return (
             <div>
                 {/* <NavBar
-                    onSearchChanged={this._onSearchChanged}
-                    username={this.props.username}
+                    onSearchChanged={this.props.onSearchChanged}
+                    onNameSignin={this.props.onNameSignin}
+                    onCMTSignin={this._onCMTSignin}
+                    username={this.state.username}
                     onLogin={this.props.onLogin}
                 /> */}
                 <div className="main_content container">
@@ -41,6 +44,8 @@ class DetailScreen extends Component {
                         <div className="col-6 mr-auto ml-auto">
                             {this.state.movie ?
                                 <MovieImage
+
+                                movieId={this.state.movieId}
                                     movie={this.state.movie}
                                     username={this.props.username}
                                     onLogin={this.props.onLogin}
@@ -51,6 +56,7 @@ class DetailScreen extends Component {
                                 onLogin={this.props.onLogin}
                                 movieId={this.state.movieId}
                                 review={this.state.review}
+                                
                                 updateReview={this._updateReview}
                             />
                         </div>

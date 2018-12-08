@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import SearchField from "./SearchField";
 import logo from "../img/imdb-logo.png";
-// import ProfilePanel from "./ProfilePanel";
+import ProfilePanel from "./ProfilePanel";
 import { NavbarBrand } from 'reactstrap'
 import { Link } from "react-router-dom";
 
@@ -28,10 +28,12 @@ class NavBar extends Component {
                         </li>
                     </ul>
                     <SearchField onSearchChanged={this.props.onSearchChanged} />
-                    {/* <ProfilePanel
+                    <ProfilePanel
+                        onNameSignin={this.props.onNameSignin}
+                        onCMTSignin={this.props.onCMTSignin}
                         username={this.props.username}
                         onLogin={this.props.onLogin}
-                    /> */}
+                    />
                 </div>
             </nav>
         );

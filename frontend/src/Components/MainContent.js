@@ -8,7 +8,9 @@ class MainContent extends Component {
         const allMovieImages = this.props.movies.map(movie => (
             <div key={movie._id} className="col-3">
                 <Link to={`/movies/${movie._id}`}>
-                    <MovieImage movie={movie} />
+                    <MovieImage 
+                  
+                    movie={movie} />
                 </Link>
             </div>
         ));
