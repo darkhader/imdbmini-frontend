@@ -1,1 +1,1 @@
-export const ROOT_API = "http://localhost:9999";
+export const ROOT_API = "https://imdb-mini.herokuapp.com/";
