@@ -1,1 +1,1 @@
-export const ROOT_API = "https://imdb-mini.herokuapp.com/";
+export const ROOT_API = "https://imdb-mini.herokuapp.com";
