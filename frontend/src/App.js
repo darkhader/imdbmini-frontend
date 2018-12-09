@@ -10,7 +10,9 @@ import ActorScreen from "./Containers/ActorScreen";
 import { ROOT_API } from './statics';
 import { BrowserRouter, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
-
+import SignUp from "./Components/SignUp";
+import AddMovie from "./Components/AddMovie";
+import AddActor from "./Components/AddActor";
 class App extends Component {
     state = {};
 
@@ -121,6 +123,36 @@ class App extends Component {
                                 username={this.state.username}
                                 onLogin={this._onLogin}
                             />;
+                        }}
+                    />
+                      <Route
+                        path="/createNew"
+                        render={props => {
+                            return <AddMovie {...props}
+                            username={this.state.username}
+                            onLogin={this._onLogin}
+                           
+                             />
+                        }}
+                    />
+                     <Route
+                        path="/addNew"
+                        render={props => {
+                            return <AddActor {...props}
+                            username={this.state.username}
+                            onLogin={this._onLogin}
+                           
+                             />
+                        }}
+                    />
+                    <Route
+                        path="/SignUp"
+                        render={props => {
+                            return <SignUp {...props}
+                            username={this.state.username}
+                            onLogin={this._onLogin}
+                           
+                             />
                         }}
                     />
                 </div>

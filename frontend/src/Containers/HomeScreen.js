@@ -2,13 +2,14 @@ import React, { Component } from "react";
 
 import axios from "../axios";
 import { ROOT_API } from '../statics';
-import NavBar from "../Components/NavBar";
+
 import MainContent from "../Components/MainContent";
 
 class HomeScreen extends Component {
     state = {
         movies: [],
-        searchString: ""
+        searchString: "",
+        addActor:""
     };
 
     componentDidMount() {
@@ -20,7 +21,11 @@ class HomeScreen extends Component {
                     movies: response.data.movies
                 });
             })
-            .catch(err => console.error(err));
+            .catch(err => console.error(err));            
+    }
+
+    addActor = (actor) => {
+        console.log(actor)
     }
 
     _onSearchChanged = text => this.setState({ searchString: text });
@@ -42,8 +47,8 @@ class HomeScreen extends Component {
                     onLogin={this.props.onLogin}
                 /> */}
                 <MainContent
-               
-                 movies={displayedMovieImages} />
+                    addActor={this.addActor}
+                    movies={displayedMovieImages} />
                 {/* <MainContent movies={this.state.movies} /> */}
             </div>
         );

@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import config from "../statics";
+
 
 class ActorImage extends Component {
     render() {
-        const reviews = this.props.actor.review
-            ? this.props.actor.review.map(review => (
-                <p key={review._id}>
-                    {/* <span className="font-weight-bold">{comment.createdBy.username}</span>:{" "} */}
-                    {review.content}
-                </p>
-            ))
-            : "";
+      
 
         return (
             <div className="actor_image">

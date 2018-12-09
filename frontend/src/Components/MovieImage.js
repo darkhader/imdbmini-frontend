@@ -73,9 +73,11 @@ class MovieImage extends Component {
                 <p>{this.props.movie.description}</p>
                 <div>Year: {this.props.movie.year}</div>
                 <div>Duration: {this.props.movie.duration}</div>
-                <ActorInMovie movie={this.props.movie}/>
+                <ActorInMovie
+                hiddenReview ={this.props.hiddenReview}
+                 movie={this.props.movie}/>
 
-                {reviews}
+                {this.props.hiddenReview ? "" : reviews}
             </div>
         );
     }

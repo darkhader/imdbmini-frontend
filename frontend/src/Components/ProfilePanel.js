@@ -85,7 +85,8 @@ class ProfilePanel extends Component {
               />
               
             </form>
-            <button class="btn btn-primary" onClick={this.handleCloseModal} onClick={this.props.onLogin}>Đăng nhập</button>
+            <button class="btn btn-primary" onClick={this.handleCloseModal} 
+            onClick={this.props.onLogin}>Đăng nhập</button>
               <button class="btn btn-secondary" onClick={this.handleCloseModal}>Thoát</button>
           </Modal>
         </div>

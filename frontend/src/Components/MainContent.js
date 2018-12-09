@@ -5,12 +5,15 @@ import { Link } from "react-router-dom";
 
 class MainContent extends Component {
     render() {
+        const { addActor } = this.props;
+        console.log(addActor)
         const allMovieImages = this.props.movies.map(movie => (
             <div key={movie._id} className="col-3">
                 <Link to={`/movies/${movie._id}`}>
-                    <MovieImage 
-                  
-                    movie={movie} />
+                    <MovieImage
+                        hiddenReview={true}
+                        addActor={addActor}
+                        movie={movie} />
                 </Link>
             </div>
         ));

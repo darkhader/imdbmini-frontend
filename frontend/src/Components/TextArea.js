@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from '../axios';
 import { ROOT_API } from '../statics';
 class TextArea extends Component {
+    state = {
+        review: ""
+    }
     _onSubmitReview = (event) => {
         event.preventDefault();
         const { review, movieId, userId } = this.props;
@@ -13,11 +16,13 @@ class TextArea extends Component {
             // this.setState
             axios
             .post(`${ROOT_API}/api/reviews/`,{
-                content: review,
+                content: this.state.review,
                 movie: movieId,
                 user: response.data.userFound.id
             })
             .then(response => {
+                this.props.updateReview(this.state.review);
+                this.setState({review:""})
                 console.log(response)
             })
             .catch(err => {
@@ -30,23 +35,28 @@ class TextArea extends Component {
 
        
     }
+ 
+    
 
     render() {
         return (
             <form onSubmit={this._onSubmitReview}>
                 <div className="form-group">
                     <label>Add review: </label>
-                    <textarea
+                    <input
+                        value={this.state.review}
                         className="form-control"
                         rows="2"
                         onChange={(event) => {
-                            this.props.updateReview(event.target.value);
+                            // this.props.updateReview(event.target.value);
+                            this.setState({ review: event.target.value });
                         }}
                     >
-                    </textarea>
+                    </input>
                 </div>
                 <div className="d-flex justify-content-center">
                     <button
+                    // onClick={this._onSubmitReview}
                         className="btn btn-primary"
                     >Submit
                     </button>

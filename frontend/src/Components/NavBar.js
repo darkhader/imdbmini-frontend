@@ -15,7 +15,7 @@ class NavBar extends Component {
                         <img src={logo} alt="IMDb Logo" />
                     </Link>
                 </NavbarBrand>
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse container" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
                             <Link to={"/"} className="nav-link">Home</Link>
@@ -26,6 +26,17 @@ class NavBar extends Component {
                         <li className="nav-item">
                             <Link to={"/actor"} className="nav-link">Actor/Actress</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to={"/addNew"} className="nav-link">Add Actor </Link>
+                        </li>
+                        
+                        <li className="nav-item">
+                     <Link to={"/createNew"}className="nav-link">Add Movie </Link> 
+                    </li>
+                    <li className="nav-item">
+                     <Link to={"/SignUp"}className="nav-link">Register </Link> 
+                    </li>
+
                     </ul>
                     <SearchField onSearchChanged={this.props.onSearchChanged} />
                     <ProfilePanel

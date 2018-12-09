@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import axios from "../axios";
 import { ROOT_API } from '../statics';
-import NavBar from "../Components/NavBar";
+
 import ActorContent from "../Components/ActorContent";
 
 class ActorScreen extends Component {
