@@ -4,7 +4,7 @@ import { ROOT_API } from '../statics';
 import axios from "../axios";
 import '../App.css';
 import Autocomplete from "react-autocomplete"
-class MovieImage extends Component {
+class ActorInMovie extends Component {
     state = {
         actor:"",
         actors:[]
@@ -16,24 +16,27 @@ class MovieImage extends Component {
           this.setState({
             actors: data.data.actors
           });
-          console.log("actor ",this.state.actors);
+         
           
         })
         .catch(err => console.error(err));
-        axios
-        .get(`${ROOT_API}/api/actors/`)
-        .then(data => {
-          this.setState({
-            actors: data.data.actors
-          });
-          console.log("actor ",this.state.actors);
+
+
+        
+        // axios
+        // .get(`${ROOT_API}/api/actors/`)
+        // .then(data => {
+        //   this.setState({
+        //     actors: data.data.actors
+        //   });
+     
           
-        })
-        .catch(err => console.error(err));
+        // })
+        // .catch(err => console.error(err));
     }
     render() {
         const { addActor } = this.props;
-            console.log(   this.props.hiddenReview );
+      
             
 
             
@@ -80,15 +83,17 @@ class MovieImage extends Component {
                             </div>
                         }
                         value={this.state.actor}
-                        // onChange={(e) => {
-                        //     // value = e.target.value;
-                        //     console.log(e.target.value);
-                        //     this.setState({ actor: e.target.value });
-                        // }}
+                        onChange={(e) => {
+                            // value = e.target.value;
+                            console.log(e.target.value);
+                            this.setState({ actor: e.target.value });
+                        }}
                         onSelect={(value) => {
                             this.setState({ actor: value });
-                            console.log(addActor)
-                            addActor(value)
+                            console.log(value)
+                            
+                             addActor(value);
+                          
                         }}
                         menuStyle={{
                             borderRadius: '3px',
@@ -111,4 +116,4 @@ class MovieImage extends Component {
     }
 }
 
-export default MovieImage;
+export default ActorInMovie;

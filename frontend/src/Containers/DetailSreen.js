@@ -50,7 +50,27 @@ class DetailScreen extends Component {
                 //     movie: response.data.movie,
 
                 // });
-                window.location.href = `http://localhost:3000/movies/${this.props.match.params.movieId}`
+                // window.location.href = `http://localhost:3000/movies/${this.props.match.params.movieId}`
+                console.log(response);
+
+
+            })
+            .catch(err => console.error(err));
+    }
+    addLike = (like) => {
+        const { movie } = this.state;
+        console.log(like, movie)
+        axios
+            .put(`${ROOT_API}/api/movies/${this.props.match.params.movieId}`, {
+                like: like
+            }
+            )
+            .then(response => {
+                // this.setState({
+                //     movie: response.data.movie,
+
+                // });
+                // window.location.href = `http://localhost:3000/movies/${this.props.match.params.movieId}`
                 console.log(response);
 
 
@@ -74,6 +94,7 @@ class DetailScreen extends Component {
                             {this.state.movie ?
                                 <MovieImage
                                     addActor={this.addActor}
+                                    addLike={this.addLike}
                                     movieId={this.state.movieId}
                                     movie={this.state.movie}
                                     username={this.props.username}

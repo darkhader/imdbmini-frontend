@@ -3,6 +3,7 @@ import config from "../statics";
 import { ROOT_API } from '../statics';
 import axios from "../axios";
 import ActorInMovie from "./ActorInMovie";
+import LikeDisLike from "./LikeDisLike";
 class MovieImage extends Component {
     componentDidMount() {
 
@@ -12,19 +13,9 @@ class MovieImage extends Component {
 
         }).then(response => {
 
-            console.log(response.data.movie.review)
+       
 
-            const allReview = response.data.movie.review
-                ? response.data.movie.review.map(mapreview =>
-                    this.setState({
-                        name: mapreview.user.name
-                    }
-
-                    ))
-                : ""
-            console.log("name", this.state.name);
-            // window.location.href = `http://localhost:3000/citizen/${response.data.citizenFound.id} `
-            // toggleLoading(false);
+        
         }).catch(error => {
 
             console.log(error)
@@ -35,7 +26,6 @@ class MovieImage extends Component {
     }
     render() {
 
-        console.log("chym", this.props.movie);
 
         const reviews = this.props.movie.review
             ? this.props.movie.review.map(review => (
@@ -49,17 +39,6 @@ class MovieImage extends Component {
             ))
             : "";
 
-        // const actors = this.props.movie.actor
-        //     ? this.props.movie.actor.map(actor => (
-        //         <p key={actor._id}>
-
-        //             <span className="font-weight-bold">{
-        //                 actor.name ? actor.name : ""
-        //             }</span>:{" "}
-        //             <img src={actor.image}></img>
-        //         </p>
-        //     ))
-        //     : "";
 
         return (
             <div className="movie_image">
@@ -69,15 +48,21 @@ class MovieImage extends Component {
                     src={this.props.movie.image}
                     alt={this.props.movie.title}
                 />
+                <LikeDisLike
+                 hiddenReview={this.props.hiddenReview}
+                 movie={this.props.movie}
+                 addLike={this.props.addLike} />
                 <h5>{this.props.movie.title}</h5>
                 <p>{this.props.movie.description}</p>
                 <div>Year: {this.props.movie.year}</div>
                 <div>Duration: {this.props.movie.duration}</div>
                 <ActorInMovie
-                hiddenReview ={this.props.hiddenReview}
-                 movie={this.props.movie}/>
-
+                    hiddenReview={this.props.hiddenReview}
+                    movie={this.props.movie} 
+                    addActor={this.props.addActor}/>
+                
                 {this.props.hiddenReview ? "" : reviews}
+                
             </div>
         );
     }

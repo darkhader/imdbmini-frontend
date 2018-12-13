@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 class MainContent extends Component {
     render() {
-        const { addActor } = this.props;
+        const { addActor,addLike } = this.props;
         console.log(addActor)
         const allMovieImages = this.props.movies.map(movie => (
             <div key={movie._id} className="col-3">
@@ -13,6 +13,7 @@ class MainContent extends Component {
                     <MovieImage
                         hiddenReview={true}
                         addActor={addActor}
+                        addLike={addLike}
                         movie={movie} />
                 </Link>
             </div>
