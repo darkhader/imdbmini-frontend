@@ -4,6 +4,7 @@ import { ROOT_API } from '../statics';
 import axios from "../axios";
 import ActorInMovie from "./ActorInMovie";
 import LikeDisLike from "./LikeDisLike";
+import Trailer from "./Trailer";
 class MovieImage extends Component {
     componentDidMount() {
 
@@ -12,15 +13,8 @@ class MovieImage extends Component {
             method: "GET",
 
         }).then(response => {
-
-       
-
-        
         }).catch(error => {
-
             console.log(error)
-
-
         });
 
     }
@@ -43,26 +37,32 @@ class MovieImage extends Component {
         return (
             <div className="movie_image">
                 <img
-                    style={{ width: "100%" }}
-                    className="img-fluid"
+                    style={{ width: "100%", height: "100%" }}
+                    className="img-fluid text-center"
                     src={this.props.movie.image}
                     alt={this.props.movie.title}
                 />
                 <LikeDisLike
-                 hiddenReview={this.props.hiddenReview}
-                 movie={this.props.movie}
-                 addLike={this.props.addLike} />
+                    hiddenReview={this.props.hiddenReview}
+                    movie={this.props.movie}
+                    addLike={this.props.addLike} />
                 <h5>{this.props.movie.title}</h5>
-                <p>{this.props.movie.description}</p>
+                <p>Thể loại:  {this.props.movie.description}</p>
+                
+                <Trailer
+                hiddenReview={this.props.hiddenReview}
+                 title={this.props.movie.title}/>
+
+
                 <div>Year: {this.props.movie.year}</div>
                 <div>Duration: {this.props.movie.duration}</div>
                 <ActorInMovie
                     hiddenReview={this.props.hiddenReview}
-                    movie={this.props.movie} 
-                    addActor={this.props.addActor}/>
-                
+                    movie={this.props.movie}
+                    addActor={this.props.addActor} />
+
                 {this.props.hiddenReview ? "" : reviews}
-                
+
             </div>
         );
     }

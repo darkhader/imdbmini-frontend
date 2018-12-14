@@ -13,6 +13,7 @@ import NavBar from "./Components/NavBar";
 import SignUp from "./Components/SignUp";
 import AddMovie from "./Components/AddMovie";
 import AddActor from "./Components/AddActor";
+import ActorDetail from "./Containers/ActorDetail";
 class App extends Component {
     state = {};
 
@@ -30,10 +31,10 @@ class App extends Component {
                     username: response.data.userFound.name,
 
                 })
-                // window.location.href = `http://localhost:3000/ `
+              
 
             }
-            // toggleLoading(false);
+            
         }).catch(error => {
 
             console.log(error)
@@ -66,25 +67,28 @@ class App extends Component {
         });
 
     }
+    
     render() {
+        console.log(this.state.searchString);
+        
         return (
             <BrowserRouter>
                 <div className="App">
-                    <NavBar
-
-
-                        onNameSignin={this._onNameSignin}
-                        onCMTSignin={this._onCMTSignin}
-                        username={this.state.username}
-                        onLogin={this._onLogin}
-                    />
+                   
                     <Route
                         exact
                         path="/"
                         render={props => {
 
-                            return (<h5> Home Screen</h5> 
-                             );
+                            return ( <NavBar
+
+                                onSearchChanged={this._onSearchChanged}
+                                onNameSignin={this._onNameSignin}
+                                onCMTSignin={this._onCMTSignin}
+                                username={this.state.username}
+                                onLogin={this._onLogin}
+                            />
+                            );
 
                         }}
                     />
@@ -93,6 +97,7 @@ class App extends Component {
                         render={props => {
                             return <HomeScreen
                                 {...props}
+                                onSearchChanged={this.state.searchString}
                                 onNameSignin={this._onNameSignin}
                                 onCMTSignin={this._onCMTSignin}
                                 username={this.state.username}
@@ -125,34 +130,46 @@ class App extends Component {
                             />;
                         }}
                     />
-                      <Route
+                    <Route
+                        path="/actors/:actorId"
+                        render={props => {
+                            return <ActorDetail
+                                {...props}
+                                onNameSignin={this._onNameSignin}
+                                onCMTSignin={this._onCMTSignin}
+                                username={this.state.username}
+                                onLogin={this._onLogin}
+                            />;
+                        }}
+                    />
+                    <Route
                         path="/createNew"
                         render={props => {
                             return <AddMovie {...props}
-                            username={this.state.username}
-                            onLogin={this._onLogin}
-                           
-                             />
+                                username={this.state.username}
+                                onLogin={this._onLogin}
+
+                            />
                         }}
                     />
-                     <Route
+                    <Route
                         path="/addNew"
                         render={props => {
                             return <AddActor {...props}
-                            username={this.state.username}
-                            onLogin={this._onLogin}
-                           
-                             />
+                                username={this.state.username}
+                                onLogin={this._onLogin}
+
+                            />
                         }}
                     />
                     <Route
                         path="/SignUp"
                         render={props => {
                             return <SignUp {...props}
-                            username={this.state.username}
-                            onLogin={this._onLogin}
-                           
-                             />
+                                username={this.state.username}
+                                onLogin={this._onLogin}
+
+                            />
                         }}
                     />
                 </div>

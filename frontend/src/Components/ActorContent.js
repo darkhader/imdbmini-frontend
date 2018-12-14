@@ -5,10 +5,14 @@ import { Link } from "react-router-dom";
 
 class ActorContent extends Component {
     render() {
+        const { addLike } = this.props;
         const allActorImages = this.props.actors.map(actor => (
             <div key={actor._id} className="col-3">
                 <Link to={`/actors/${actor._id}`}>
-                    <ActorImage actor={actor} />
+                    <ActorImage 
+                    hiddenReview={true}
+                    actor={actor}
+                    addLike={addLike} />
                 </Link>
             </div>
         ));

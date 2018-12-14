@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Pagination from "react-js-pagination";
-// require("bootstrap/less/bootstrap.less");
+
  
 class Page extends Component {
   // constructor(props) {
@@ -14,11 +14,13 @@ class Page extends Component {
   }
  
   render() {
+ 
+    
     return (
       <div>
         <Pagination
           activePage={this.props.currentPage}
-          itemsCountPerPage={5}
+          itemsCountPerPage={4}
           totalItemsCount={this.props.total}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange}
