@@ -32,7 +32,7 @@ class ActorImage extends Component {
         return (
             <div className="actor_image">
                 <img
-                    style={{ width: "100%" }}
+                 
                     className="img-fluid"
                     src={this.props.actor.image}
                     alt={this.props.actor.name}
@@ -47,6 +47,7 @@ class ActorImage extends Component {
                 hiddenReview={this.props.hiddenReview}
                 actor={this.props.actor} 
                />
+               <p>Review:</p>
                 {this.props.hiddenReview ? "" : reviews}
             </div>
         );

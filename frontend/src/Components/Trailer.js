@@ -7,7 +7,7 @@ export default class Trailer extends Component {
         search: ""
     }
     componentDidMount() {
-        console.log(this.props.title);
+       
         if (this.props.title) {
             axios
                 .get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${this.props.title + "trailer"}'&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw`)
@@ -20,7 +20,7 @@ export default class Trailer extends Component {
                         });
 
                     }
-                    console.log("data", data.data.items);
+                
 
 
 

@@ -3,7 +3,9 @@ import config from "../statics";
 import { ROOT_API } from '../statics';
 import axios from "../axios";
 import '../App.css';
-import Autocomplete from "react-autocomplete"
+import Autocomplete from "react-autocomplete";
+import { Link } from "react-router-dom";
+import { ListGroup, ListGroupItem } from 'reactstrap';
 class ActorInMovie extends Component {
     state = {
         actor: "",
@@ -37,41 +39,54 @@ class ActorInMovie extends Component {
     render() {
         const { addActor } = this.props;
 
+        console.log(this.props.movie.actor);
 
 
 
 
 
 
+            const actors = this.props.movie.actor
+                ? this.props.movie.actor.map(actor => (
 
-        const actors = this.props.movie.actor
-            ? this.props.movie.actor.map(actor => (
-
-                this.props.hiddenReview ? "" :
-                    <div className="col-3" key={actor._id}>
-                        <span className="font-weight-bold">{
-
-
-                            actor.name ? actor.name : ""
-                        }</span>:{" "}
-                        <img src={actor.image}
-                            style={{ width: "100%", height: "100%" }}
-                            className="img-fluid"
-                        ></img>
-                    </div>
-            ))
-            : "";
+                    this.props.hiddenReview ? "" :
 
 
 
+                        <li className="col-3" key={actor._id}>
+                            <Link to={`/actors/${actor._id}`}>
+                                <span className="font-weight-bold ">{
+
+
+                                    actor.name ? actor.name : ""
+                                }</span>:{" "}
+
+                            
+
+                            <img src={actor.image}
+                                style={{ width: "100%", height: "100%" }}
+                                className="img-fluid"
+                            ></img>
+                            </Link>
+                        </li>
+
+
+                ))
+                : "";
+
+
+ 
 
         // this.props.addActor( this.state.actor);
 
         return (
             this.props.hiddenReview ? "" :
                 <div className="container">
-                    <div className="movie_image ">
-                        {actors}
+                    <div className="movie_image">
+                        <ul className="row" style={{width: "1050", height: "200px", overflow:" auto"}} >
+                            {actors}
+                        </ul>
+
                     </div>
                     <Autocomplete
                         getItemValue={(item) => item._id}

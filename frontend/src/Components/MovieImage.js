@@ -37,7 +37,7 @@ class MovieImage extends Component {
         return (
             <div className="movie_image">
                 <img
-                    style={{ width: "100%", height: "100%" }}
+                    // style={{ width: "100%", height: "100%" }}
                     className="img-fluid text-center"
                     src={this.props.movie.image}
                     alt={this.props.movie.title}
@@ -48,10 +48,10 @@ class MovieImage extends Component {
                     addLike={this.props.addLike} />
                 <h5>{this.props.movie.title}</h5>
                 <p>Thể loại:  {this.props.movie.description}</p>
-                
+
                 <Trailer
-                hiddenReview={this.props.hiddenReview}
-                 title={this.props.movie.title}/>
+                    hiddenReview={this.props.hiddenReview}
+                    title={this.props.movie.title} />
 
 
                 <div>Year: {this.props.movie.year}</div>
@@ -60,7 +60,7 @@ class MovieImage extends Component {
                     hiddenReview={this.props.hiddenReview}
                     movie={this.props.movie}
                     addActor={this.props.addActor} />
-
+                <p>Review:</p>
                 {this.props.hiddenReview ? "" : reviews}
 
             </div>

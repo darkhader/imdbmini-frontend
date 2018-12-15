@@ -3,34 +3,34 @@ import React, { Component } from "react";
 import { ROOT_API } from '../statics';
 import axios from "../axios";
 import '../App.css';
-
+import { Link } from "react-router-dom";
 class MovieInActor extends Component {
     state = {
-        movie:"",
-        movies:[]
+        movie: "",
+        movies: []
     }
     componentDidMount() {
         axios
-        .get(`${ROOT_API}/api/movies/`)
-        .then(data => {
-          this.setState({
-            movies: data.data.movies
-          });
-         
-          
-        })
-        .catch(err => console.error(err));
+            .get(`${ROOT_API}/api/movies/`)
+            .then(data => {
+                this.setState({
+                    movies: data.data.movies
+                });
 
 
-        
+            })
+            .catch(err => console.error(err));
+
+
+
     }
     render() {
-       
-      
-            
 
-            
-       
+
+
+
+
+
 
 
 
@@ -38,33 +38,34 @@ class MovieInActor extends Component {
             ? this.props.actor.movie.map(movie => (
 
                 this.props.hiddenReview ? "" :
-                <div className="col-3" key={movie._id}>
-                    <span className="font-weight-bold">{ 
+                    <li className="col-3" key={movie._id}>
+                        <Link to={`/movies/${movie._id}`}>
+                          
+
                         
-                       
-                        movie.title ? movie.title : "" 
-                    }</span>:{" "}
-                    <img src={movie.image}
-                        style={{ width: "100%" }}
-                        className="img-fluid"
-                    ></img>
-                </div>
+
+                        <img src={movie.image}
+                            style={{ width: "95px", height:"140px" }}
+                            className="img-fluid"
+                        ></img>
+                        </Link>
+                    </li>
             ))
             : "";
-           
-            
-         
-            
-            // this.props.addActor( this.state.actor);
+
+
+
+
+        // this.props.addActor( this.state.actor);
 
         return (
             this.props.hiddenReview ? "" :
-            <div className="container">
-                <div className="movie_image row">
-                    {movies}</div>
-             
-                    
-            </div>
+                <div className="container">
+                    <ul className="movie_image row" style={{width: "1050", height: "200px", overflow:" auto"}}>
+                        {movies}
+                    </ul>
+
+                </div>
 
 
         );

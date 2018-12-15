@@ -7,7 +7,7 @@ class ActorContent extends Component {
     render() {
         const { addLike } = this.props;
         const allActorImages = this.props.actors.map(actor => (
-            <div key={actor._id} className="col-3">
+            <div key={actor._id} className="col-3 anhnho">
                 <Link to={`/actors/${actor._id}`}>
                     <ActorImage 
                     hiddenReview={true}
