@@ -49,9 +49,9 @@ class ProfilePanel extends Component {
   render() {
     const display = this.props.username ? (
       <div>
-        <span className="navbar-text">Welcome, {this.props.username}</span>
+        <span className="d-flex justify-content-center">Welcome, {this.props.username}</span>
         <button
-          className="btn btn-danger btn-block"
+          className="btn btn-danger btn-md d-flex justify-content-center"
           onClick={this._onLogout}>
           LogOut
         </button>
