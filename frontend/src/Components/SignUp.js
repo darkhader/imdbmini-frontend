@@ -29,7 +29,7 @@ class SignUp extends Component {
             .then(response => {
                 console.log(response.data);
                 if (response.data.success) {
-                    window.location.href = this.props.match.params;
+                    window.location.href = "/";
                 }
             })
             .catch(err => console.log(err))
