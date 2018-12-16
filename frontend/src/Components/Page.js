@@ -17,9 +17,9 @@ class Page extends Component {
 
 
     return (
-      <div>
+      <div className="d-flex justify-content-end ">
         <Pagination
-          className="mr-5 d-flex justify-content-end"
+         
           activePage={this.props.currentPage}
           itemsCountPerPage={8}
           totalItemsCount={this.props.total}
