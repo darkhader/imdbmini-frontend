@@ -9,7 +9,7 @@ class SearchField extends Component {
         return (
             <form className="col-3">
                 <input
-                    style={{ height: "30px", fontSize:"25px"}}
+                    style={{ height: "30px", fontSize:"18px"}}
                     onChange={this._handleTextChange}
                     className="form-control"
                     type="text"
