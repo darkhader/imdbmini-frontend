@@ -17,7 +17,7 @@ class Page extends Component {
 
 
     return (
-      <div className="d-flex justify-content-end ">
+      <div className="d-flex justify-content-end " style={{marginRight:"120px"}}>
         <Pagination
          
           activePage={this.props.currentPage}
