@@ -44,7 +44,7 @@ class AddMovie extends Component {
                 .then(response => {
                     console.log(response.data);
                     if (response.data.success) {
-                        window.location.href = "/";
+                        window.location.href = "https://imdb-frontend.herokuapp.com/createNew";
                     }
                 })
                 .catch(err => console.log(err))
