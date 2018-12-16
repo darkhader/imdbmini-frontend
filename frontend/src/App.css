@@ -39,33 +39,6 @@ body {
  
  
 }
-
-.anhnho .movie_image{
-  width: 255px;
-  height:490px ;
-}
-.anhnho .movie_image  img{
-  text-align: center;
-  margin-bottom:20px;
-  width: 255px;
-  height:330px ;
-  font-size: 32px;
-  font-style: bold;
- 
-}
-.movie_image  img{
-   width: 730px;
-  height:1030px  ;
-}
-.movie_image h5{
-  text-align: center;
-}
-.movie_image p{
-  
-  padding: 0 10px;
-  margin-bottom: 10px;
-
-}
 .actor_image {
   margin-bottom:10px;
   background: rgb(36, 33, 33);
@@ -78,18 +51,22 @@ body {
  
  
 }
-h5{
-  text-align: center;
-  font-weight: bold;
-  color: yellow;
-  
-}
-li{
-  margin-top:20px
+.anhnho .movie_image{
+  width: 255px;
+  height:490px ;
 }
 .anhnho .actor_image{
   width: 255px;
   height:490px;
+}
+.anhnho .movie_image  img{
+  text-align: center;
+  margin-bottom:20px;
+  width: 255px;
+  height:330px ;
+  font-size: 32px;
+  font-style: bold;
+ 
 }
 .anhnho .actor_image img{
   text-align: center;
@@ -100,6 +77,35 @@ li{
   font-style: bold;
  
 }
+.movie_image  img{
+   width: 730px;
+  height:1030px  ;
+}
+.actor_image  img{
+  width: 730px;
+ height:1030px  ;
+}
+.movie_image h5{
+  text-align: center;
+}
+.movie_image p{
+  
+  padding: 0 10px;
+  margin-bottom: 10px;
+
+}
+
+h5{
+  text-align: center;
+  font-weight: bold;
+  color: yellow;
+  
+}
+li{
+  margin-top:20px
+}
+
+
 a:hover{
   text-decoration: none;/* Takes initial value of the property which is black in this case */
 }
