@@ -77,7 +77,7 @@ class HomeScreen extends Component {
 
 
         return (
-            <div className="row">
+            <div >
                 <NavBar
 
                     onSearchChanged={this._onSearchChanged}

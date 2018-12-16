@@ -13,6 +13,7 @@ export default class Sort extends React.Component {
     }
     render() {
         return (
+            <div className="row">
             <div className="col-3">
                 <FormGroup>
                     <Label for="exampleSelect">Sắp xếp</Label>
@@ -24,6 +25,7 @@ export default class Sort extends React.Component {
 
                     </Input>
                 </FormGroup>
+            </div>
             </div>
 
         )
