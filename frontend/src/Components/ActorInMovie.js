@@ -46,36 +46,36 @@ class ActorInMovie extends Component {
 
 
 
-            const actors = this.props.movie.actor
-                ? this.props.movie.actor.map(actor => (
+        const actors = this.props.movie.actor
+            ? this.props.movie.actor.map(actor => (
 
-                    this.props.hiddenReview ? "" :
-
-
-
-                        <li className="col-3" key={actor._id}>
-                            <Link to={`/actors/${actor._id}`}>
-                                <span className="font-weight-bold ">{
+                this.props.hiddenReview ? "" :
 
 
-                                    actor.name ? actor.name : ""
-                                }</span>{" "}
 
-                            
+                    <li className="col-3" key={actor._id}>
+                        <Link to={`/actors/${actor._id}`}>
+                            <span className="font-weight-bold ">{
+
+
+                                actor.name ? actor.name : ""
+                            }</span>{" "}
+
+
 
                             <img src={actor.image}
                                 style={{ width: "100%", height: "100%" }}
                                 className="img-fluid"
                             ></img>
-                            </Link>
-                        </li>
+                        </Link>
+                    </li>
 
 
-                ))
-                : "";
+            ))
+            : "";
 
 
- 
+
 
         // this.props.addActor( this.state.actor);
 
@@ -83,8 +83,8 @@ class ActorInMovie extends Component {
             this.props.hiddenReview ? "" :
                 <div className="container">
                     <div className="movie_image">
-                    <h2>Diễn Viên</h2>
-                        <ul className="row" style={{width: "1050", height: "200px", overflow:" auto"}} >
+                        <h2>Diễn Viên</h2>
+                        <ul className="row" style={{ width: "1050", height: "200px", overflow: " auto" }} >
                             {actors}
                         </ul>
 
@@ -102,7 +102,7 @@ class ActorInMovie extends Component {
                         value={this.state.actor}
                         onChange={(e) => {
                             // value = e.target.value;
-                           
+
                             this.setState({ actor: e.target.value });
                         }}
                         shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
@@ -120,14 +120,14 @@ class ActorInMovie extends Component {
                             padding: '2px 0',
                             fontSize: '90%',
                             position: 'fixed',
-
+                            color: "black",
                             // left: "auto",
                             // top: "auto",
                             overflowY: 'scroll',
                             maxHeight: '200px', // TODO: don't cheat, let it flow to the bottom
                         }}
                     />
-                    
+
                 </div>
 
 
