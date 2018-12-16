@@ -49,12 +49,15 @@ class ProfilePanel extends Component {
   render() {
     const display = this.props.username ? (
       <div>
-        <span className="d-flex justify-content-center">Welcome, {this.props.username}</span>
-        <button
-          className="btn btn-danger btn-md d-flex justify-content-center"
-          onClick={this._onLogout}>
-          LogOut
+        <h2 className="d-flex justify-content-center">Xin chào, {this.props.username}</h2>
+        
+          <button 
+            className="btn btn-danger btn-block d-flex justify-content-center mt-3"
+            onClick={this._onLogout}>
+            LogOut
         </button>
+        
+
       </div>
 
     ) : (
@@ -70,7 +73,7 @@ class ProfilePanel extends Component {
             isOpen={this.state.showModal}
             contentLabel="Minimal Modal Example"
           >
-            <form  className="col-3">
+            <form className="col-3">
               <input
                 onChange={this._handleTextChange}
                 className="form-control"
@@ -83,11 +86,11 @@ class ProfilePanel extends Component {
                 type="password"
                 placeholder="Password"
               />
-              
+
             </form>
-            <button class="btn btn-primary" onClick={this.handleCloseModal} 
-            onClick={this.props.onLogin}>Đăng nhập</button>
-              <button class="btn btn-secondary" onClick={this.handleCloseModal}>Thoát</button>
+            <button class="btn btn-primary" onClick={this.handleCloseModal}
+              onClick={this.props.onLogin}>Đăng nhập</button>
+            <button class="btn btn-secondary" onClick={this.handleCloseModal}>Thoát</button>
           </Modal>
         </div>
         // <button

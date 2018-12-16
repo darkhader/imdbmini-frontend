@@ -18,27 +18,30 @@ class NavBar extends Component {
                 <div className="collapse navbar-collapse container" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item active">
-                            <Link to={"/"} className="nav-link">Home</Link>
+                            <Link to={"/"} className="nav-link"><h3>Home</h3></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/movie"} className="nav-link">Movie</Link>
+                            <Link to={"/movie"} className="nav-link"><h3>Phim</h3></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/actor"} className="nav-link">Actor/Actress</Link>
+                            <Link to={"/actor"} className="nav-link"><h3>Diễn Viên</h3></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/addNew"} className="nav-link">Add Actor </Link>
+                            <Link to={"/addNew"} className="nav-link"><h3>Thêm DV</h3> </Link>
                         </li>
-                        
+
                         <li className="nav-item">
-                     <Link to={"/createNew"}className="nav-link">Add Movie </Link> 
-                    </li>
-                    <li className="nav-item">
-                     <Link to={"/SignUp"}className="nav-link">Register </Link> 
-                    </li>
+                            <Link to={"/createNew"} className="nav-link"><h3>Thêm Phim</h3> </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={"/SignUp"} className="nav-link"><h3>Đăng Ký</h3> </Link>
+                        </li>
 
                     </ul>
-                    <SearchField onSearchChanged={this.props.onSearchChanged} />
+                
+                        <SearchField onSearchChanged={this.props.onSearchChanged} />
+                   
+
                     <ProfilePanel
                         onNameSignin={this.props.onNameSignin}
                         onCMTSignin={this.props.onCMTSignin}
