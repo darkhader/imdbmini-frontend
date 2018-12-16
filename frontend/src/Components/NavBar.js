@@ -21,20 +21,20 @@ class NavBar extends Component {
                             <Link to={"/"} className="nav-link"><h3>Home</h3></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/movie"} className="nav-link"><h3>Phim</h3></Link>
+                            <Link to={"/movie"} className="nav-link"><h3>Movie</h3></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/actor"} className="nav-link"><h3>Diễn Viên</h3></Link>
+                            <Link to={"/actor"} className="nav-link"><h3>Actor/Actress</h3></Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/addNew"} className="nav-link"><h3>Thêm DV</h3> </Link>
+                            <Link to={"/addNew"} className="nav-link"><h3>Add Actor</h3> </Link>
                         </li>
 
                         <li className="nav-item">
-                            <Link to={"/createNew"} className="nav-link"><h3>Thêm Phim</h3> </Link>
+                            <Link to={"/createNew"} className="nav-link"><h3>Add Movie</h3> </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/SignUp"} className="nav-link"><h3>Đăng Ký</h3> </Link>
+                            <Link to={"/SignUp"} className="nav-link"><h3>Register</h3> </Link>
                         </li>
 
                     </ul>

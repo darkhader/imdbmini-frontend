@@ -13,7 +13,7 @@ class SearchField extends Component {
                     onChange={this._handleTextChange}
                     className="form-control"
                     type="text"
-                    placeholder="Tìm kiếm"
+                    placeholder="Search"
                 />
             </form>
         );
