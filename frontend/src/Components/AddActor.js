@@ -34,7 +34,7 @@ class AddActor extends Component {
         formData.append("file", this.state.file);
 
         axiosNative({
-            url: "http://upload.techkids.vn/upload",
+            url: "https://upload.techkids.vn/upload",
             method: "POST",
             data: formData
         }).then(response => {

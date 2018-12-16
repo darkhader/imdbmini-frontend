@@ -33,7 +33,7 @@ class AddMovie extends Component {
         console.log(this.state.file)
         formData.append("file", this.state.file);
         axiosNative({
-            url: "http://upload.techkids.vn/upload",
+            url: "https://upload.techkids.vn/upload",
             method: "POST",
             data: formData
         }).then(response => {
