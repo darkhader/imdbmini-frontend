@@ -31,7 +31,7 @@ class ActorScreen extends Component {
     }
     changePage = (pageNumber) => {
         axios
-            .get(`${ROOT_API}/api/actors?page=${pageNumber}`)
+            .get(`${ROOT_API}/api/actors?page=${pageNumber}&sort=${this.state.sortNumber}`)
             .then(response => {
                 this.setState({
                     actors: response.data.actors,
@@ -42,7 +42,7 @@ class ActorScreen extends Component {
     }
     changeSort = (sortNumber) => {
         axios
-            .get(`${ROOT_API}/api/actors?sort=${sortNumber}`)
+            .get(`${ROOT_API}/api/actors?page=${this.state.pageNumber}&sort=${sortNumber}`)
             .then(response => {
                 this.setState({
                     actors: response.data.actors,

@@ -41,7 +41,7 @@ class HomeScreen extends Component {
 
     changePage = (pageNumber) => {
         axios
-            .get(`${ROOT_API}/api/movies?page=${pageNumber}`)
+            .get(`${ROOT_API}/api/movies?page=${pageNumber}&sort=${this.state.sortNumber}`)
             .then(response => {
                 this.setState({
                     movies: response.data.movies,
@@ -52,7 +52,7 @@ class HomeScreen extends Component {
     }
     changeSort = (sortNumber) => {
         axios
-            .get(`${ROOT_API}/api/movies?sort=${sortNumber}`)
+            .get(`${ROOT_API}/api/movies?page=${this.state.pageNumber}&sort=${sortNumber}`)
             .then(response => {
                 this.setState({
                     movies: response.data.movies,
