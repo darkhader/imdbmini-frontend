@@ -99,7 +99,7 @@ class DetailScreen extends Component {
                         loading: false
                     });
 
-                    window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
+                    window.location.href = `https://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
                 }
 
 
@@ -126,7 +126,7 @@ class DetailScreen extends Component {
                         loading: false
                     });
 
-                    window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
+                    window.location.href = `https://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
                 }
                
 
