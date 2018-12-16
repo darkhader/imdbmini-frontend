@@ -24,7 +24,7 @@ class DetailScreen extends Component {
             .then(response => {
                 this.setState({
                     movie: response.data.movie,
-
+                    movietitle: response.data.movie.title,
                 });
                 axios
                     .put(`${ROOT_API}/api/movies/${this.props.match.params.movieId}`, {
@@ -95,7 +95,7 @@ class DetailScreen extends Component {
 
                 });
 
-                window.location.href = `http://localhost:3000/movies/${this.props.match.params.movieId}`
+                window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
 
 
 
@@ -112,7 +112,7 @@ class DetailScreen extends Component {
             )
             .then(response => {
 
-                window.location.href = `http://localhost:3000/movies/${this.props.match.params.movieId}`
+                window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
 
 
 
@@ -154,7 +154,7 @@ class DetailScreen extends Component {
                                 onLogin={this.props.onLogin}
                                 movieId={this.state.movieId}
                                 review={this.state.review}
-
+                                movie={this.state.movietitle}
                                 updateReview={this._updateReview}
                             />
 

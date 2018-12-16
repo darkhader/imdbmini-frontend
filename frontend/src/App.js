@@ -14,6 +14,7 @@ import SignUp from "./Components/SignUp";
 import AddMovie from "./Components/AddMovie";
 import AddActor from "./Components/AddActor";
 import ActorDetail from "./Containers/ActorDetail";
+import Home from "./Containers/Home";
 class App extends Component {
     state = {};
 
@@ -57,7 +58,7 @@ class App extends Component {
             })
 
 
-            // window.location.href = `http://localhost:3000/citizen/${response.data.citizenFound.id} `
+         
             // toggleLoading(false);
         }).catch(error => {
 
@@ -69,7 +70,7 @@ class App extends Component {
     }
     
     render() {
-        console.log(this.state.searchString);
+   
         
         return (
             <BrowserRouter>
@@ -80,14 +81,12 @@ class App extends Component {
                         path="/"
                         render={props => {
 
-                            return ( <NavBar
-
-                                onSearchChanged={this._onSearchChanged}
-                                onNameSignin={this._onNameSignin}
-                                onCMTSignin={this._onCMTSignin}
-                                username={this.state.username}
-                                onLogin={this._onLogin}
-                            />
+                            return ( 
+                            <Home onSearchChanged={this._onSearchChanged}
+                            onNameSignin={this._onNameSignin}
+                            onCMTSignin={this._onCMTSignin}
+                            username={this.state.username}
+                            onLogin={this._onLogin} />
                             );
 
                         }}
@@ -146,8 +145,10 @@ class App extends Component {
                         path="/createNew"
                         render={props => {
                             return <AddMovie {...props}
-                                username={this.state.username}
-                                onLogin={this._onLogin}
+                            onNameSignin={this._onNameSignin}
+                            onCMTSignin={this._onCMTSignin}
+                            username={this.state.username}
+                            onLogin={this._onLogin}
 
                             />
                         }}
@@ -156,8 +157,10 @@ class App extends Component {
                         path="/addNew"
                         render={props => {
                             return <AddActor {...props}
-                                username={this.state.username}
-                                onLogin={this._onLogin}
+                            onNameSignin={this._onNameSignin}
+                            onCMTSignin={this._onCMTSignin}
+                            username={this.state.username}
+                            onLogin={this._onLogin}
 
                             />
                         }}
@@ -166,8 +169,10 @@ class App extends Component {
                         path="/SignUp"
                         render={props => {
                             return <SignUp {...props}
-                                username={this.state.username}
-                                onLogin={this._onLogin}
+                            onNameSignin={this._onNameSignin}
+                            onCMTSignin={this._onCMTSignin}
+                            username={this.state.username}
+                            onLogin={this._onLogin}
 
                             />
                         }}

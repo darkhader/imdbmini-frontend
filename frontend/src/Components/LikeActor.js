@@ -29,18 +29,18 @@ class LikeDisLike extends Component {
                 })
                 let m = 0;
                 for (let i = 0; i < this.props.actor.like.length; i++) {
-                    if (this.state.userlike == this.props.actor.like[i]) {
+                    if (this.state.userlike === this.props.actor.like[i]) {
                         m = 1;
                     }
-                    if (this.state.userlike != this.props.actor.like[i]) {
+                    if (this.state.userlike !== this.props.actor.like[i]) {
                         m = 0;
                     }
                     // console.log( this.props.movie.like[i]);
-                    
+
                 }
                 console.log(this.props.actor.like);
 
-                if (m == 0) {
+                if (m === 0) {
                     this.props.addLike(this.state.userlike)
                 }
 
@@ -64,15 +64,18 @@ class LikeDisLike extends Component {
 
         return (
 
-            
-                <div>
+
+            <div className="like">
 
 
-                    <Button onClick={this._onClick} />
-                    <span>          {this.props.actor.like.length}</span>
+
+                <button onClick={this._onClick} type="button" class="btn btn-info">
+                    <span class="glyphicon glyphicon-triangle-top"></span>
+                </button>
+                <span>          {this.props.actor.like.length}</span>
 
 
-                </div>
+            </div>
 
 
 

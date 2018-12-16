@@ -7,7 +7,7 @@ class TextArea extends Component {
     }
     _onSubmitReview = (event) => {
         event.preventDefault();
-        const { review, movieId, userId } = this.props;
+        const { review, movieId, userId,movie } = this.props;
         console.log("review", review);
         axios
         .get(`${ROOT_API}/api/auth/`)
@@ -18,7 +18,9 @@ class TextArea extends Component {
             .post(`${ROOT_API}/api/reviews/`,{
                 content: this.state.review,
                 movie: movieId,
-                user: response.data.userFound.id
+                user: response.data.userFound.id,
+                username:response.data.userFound.name,
+                movietitle:movie
             })
             .then(response => {
                 this.props.updateReview(this.state.review);

@@ -34,7 +34,7 @@ class ProfilePanel extends Component {
 
     }).then(response => {
       console.log(response);
-      window.location.href = `http://localhost:3000/ `
+      window.location.href = `http://imdb-frontend.herokuapp.com/ `
 
 
 

@@ -23,11 +23,11 @@ class MovieImage extends Component {
 
         const reviews = this.props.movie.review
             ? this.props.movie.review.map(review => (
-                <p key={review._id}>
+                <p className="review" key={review._id}>
 
-                    <span className="font-weight-bold">{
+                    <span style={{color:"pink", fontWeight: "bold", fontSize:"20px"}} className="font-weight-bold">{
                         review.user ? review.user.name : ""
-                    }</span>:{" "}
+                    }</span> : {" "}
                     {review.content}
                 </p>
             ))
@@ -46,22 +46,22 @@ class MovieImage extends Component {
                     hiddenReview={this.props.hiddenReview}
                     movie={this.props.movie}
                     addLike={this.props.addLike} />
-                <h5>{this.props.movie.title}</h5>
-                <p>Thể loại:  {this.props.movie.description}</p>
-
+                <h2>{this.props.movie.title} <span>({this.props.movie.year})</span></h2>
+                <div>Thể loại:  {this.props.movie.description}</div>
+                <div>Thời lượng: {this.props.movie.duration}</div>
                 <Trailer
                     hiddenReview={this.props.hiddenReview}
                     title={this.props.movie.title} />
 
 
-                <div>Year: {this.props.movie.year}</div>
-                <div>Duration: {this.props.movie.duration}</div>
+                
+                
                 <ActorInMovie
                     hiddenReview={this.props.hiddenReview}
                     movie={this.props.movie}
                     addActor={this.props.addActor} />
-                <p>Review:</p>
-                {this.props.hiddenReview ? "" : reviews}
+                
+                {this.props.hiddenReview ? "" : <p ><h2>Review</h2><br/> {reviews}</p>  }
 
             </div>
         );

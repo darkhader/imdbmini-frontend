@@ -59,7 +59,7 @@ class ActorInMovie extends Component {
 
 
                                     actor.name ? actor.name : ""
-                                }</span>:{" "}
+                                }</span>{" "}
 
                             
 
@@ -83,6 +83,7 @@ class ActorInMovie extends Component {
             this.props.hiddenReview ? "" :
                 <div className="container">
                     <div className="movie_image">
+                    <h2>Diễn Viên</h2>
                         <ul className="row" style={{width: "1050", height: "200px", overflow:" auto"}} >
                             {actors}
                         </ul>
@@ -101,9 +102,10 @@ class ActorInMovie extends Component {
                         value={this.state.actor}
                         onChange={(e) => {
                             // value = e.target.value;
-                            console.log(e.target.value);
+                           
                             this.setState({ actor: e.target.value });
                         }}
+                        shouldItemRender={(item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1}
                         onSelect={(value) => {
                             this.setState({ actor: value });
                             console.log(value)
@@ -125,6 +127,7 @@ class ActorInMovie extends Component {
                             maxHeight: '200px', // TODO: don't cheat, let it flow to the bottom
                         }}
                     />
+                    
                 </div>
 
 

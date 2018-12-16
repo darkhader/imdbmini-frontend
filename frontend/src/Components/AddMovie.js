@@ -48,56 +48,62 @@ class AddMovie extends Component {
                     }
                 })
                 .catch(err => console.log(err))
-            }) 
-        }
+        })
+    }
 
     handleInputChange = (event) => {
-        if(event.target.files) {
+        if (event.target.files) {
             console.log(event.target.files)
             this.setState({
                 [event.target.name]: event.target.files[0]
             })
         } else
-                this.setState({
-                    [event.target.name]: event.target.value
-                })
-            }
+            this.setState({
+                [event.target.name]: event.target.value
+            })
+    }
 
     render() {
-                return(
+        return (
             <div>
+                <NavBar
+                    onSearchChanged={this._onSearchChanged}
+                    onNameSignin={this.props.onNameSignin}
+                    onCMTSignin={this.props.onCMTSignin}
+                    username={this.props.username}
+                    onLogin={this.props.onLogin}
+                />
+                <Container>
 
-            <Container>
 
 
-
-                <h1 className="row12 col-12 text-light">Add New Movie's Information: </h1>
-                <Form className="row32 col-6 text-light" onSubmit={this.handleSubmit}>
-                    <FormGroup>
-                        <Label>Movie's Name: </Label>
-                        <Input name="title" placeholder="Enter title" onChange={this.handleInputChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label>Description: </Label>
-                        <Input name="description" placeholder="tell me" onChange={this.handleInputChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label> Image: </Label>
-                        <Input name="file" type="file" placeholder="Enter a link" onChange={this.handleInputChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label>Duration: </Label>
-                        <Input name="duration" type="text" onChange={this.handleInputChange} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label>Year: </Label>
-                        <Input name="year" type="number" onChange={this.handleInputChange} />
-                    </FormGroup>
-                    <div className="d-flex justify-content-center">
-                        <Button color="primary">Submit</Button>
-                    </div>
-                </Form>
-            </Container>
+                    <h1 className="row12 col-12 text-light">Add New Movie's Information: </h1>
+                    <Form className="row32 col-6 text-light" onSubmit={this.handleSubmit}>
+                        <FormGroup>
+                            <Label>Movie's Name: </Label>
+                            <Input name="title" placeholder="Enter title" onChange={this.handleInputChange} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Description: </Label>
+                            <Input name="description" placeholder="tell me" onChange={this.handleInputChange} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label> Image: </Label>
+                            <Input name="file" type="file" placeholder="Enter a link" onChange={this.handleInputChange} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Duration: </Label>
+                            <Input name="duration" type="text" onChange={this.handleInputChange} />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Year: </Label>
+                            <Input name="year" type="number" onChange={this.handleInputChange} />
+                        </FormGroup>
+                        <div className="d-flex justify-content-center">
+                            <Button color="primary">Submit</Button>
+                        </div>
+                    </Form>
+                </Container>
             </div >
         );
     }

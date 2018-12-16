@@ -21,6 +21,7 @@ class ActorDetail extends Component {
                 
                 this.setState({
                     actor: response.data.actor,
+                    actorname: response.data.actor.name,
 
                 });
                 axios
@@ -69,7 +70,7 @@ class ActorDetail extends Component {
             )
             .then(response => {
 
-                window.location.href = `http://localhost:3000/actors/${this.props.match.params.actorId}`
+                window.location.href = `http://imdb-frontend.herokuapp.com/actors/${this.props.match.params.actorId}`
 
 
 
@@ -105,7 +106,7 @@ class ActorDetail extends Component {
                                 onLogin={this.props.onLogin}
                                 actorId={this.state.actorId}
                                 review={this.state.review}
-
+                                actor={this.state.actorname}
                                 updateReview={this._updateReview} />
 
                         </div>

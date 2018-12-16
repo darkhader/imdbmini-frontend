@@ -38,7 +38,7 @@ export default class Trailer extends Component {
             height: '390',
             width: '730',
             playerVars: {
-                autoplay: 0
+                autoplay: 1
             }
         };
         return (

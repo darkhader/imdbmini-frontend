@@ -6,9 +6,9 @@ import "../App.css";
 import { ROOT_API } from '../statics';
 import NavBar from "../Components/NavBar";
 class AddActor extends Component {
-    
+
     constructor(props) {
-        super(props);   
+        super(props);
         this.state = {
             name: '',
             file: '',
@@ -17,7 +17,7 @@ class AddActor extends Component {
             nationality: ''
 
         }
-   
+
     }
     handleSubmit = (event) => {
         event.preventDefault();
@@ -43,7 +43,7 @@ class AddActor extends Component {
             axios
                 .post(`${ROOT_API}/api/actors`, actorData)
                 .then(response => {
-                
+
                     console.log(response.data);
                     if (response.data.success) {
                         window.location.href = "/";
@@ -51,14 +51,14 @@ class AddActor extends Component {
                 })
                 .catch(err => console.log(err))
         })
-        
-            
-        
+
+
+
     }
-  
+
     handleInputChange = (event) => {
         console.log(event.target)
-        if(event.target.files) {
+        if (event.target.files) {
             console.log(event.target.files)
             this.setState({
                 [event.target.name]: event.target.files[0]
@@ -69,11 +69,17 @@ class AddActor extends Component {
     }
 
     render() {
-        
+
 
         return (
             <div>
-
+                <NavBar
+                    onSearchChanged={this._onSearchChanged}
+                    onNameSignin={this.props.onNameSignin}
+                    onCMTSignin={this.props.onCMTSignin}
+                    username={this.props.username}
+                    onLogin={this.props.onLogin}
+                />
                 <Container>
 
 

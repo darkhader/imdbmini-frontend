@@ -20,7 +20,7 @@ class Page extends Component {
       <div>
         <Pagination
           activePage={this.props.currentPage}
-          itemsCountPerPage={4}
+          itemsCountPerPage={8}
           totalItemsCount={this.props.total}
           pageRangeDisplayed={5}
           onChange={this.handlePageChange}

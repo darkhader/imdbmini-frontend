@@ -19,9 +19,9 @@ class ActorImage extends Component {
     render() {
         const reviews = this.props.actor.review
         ? this.props.actor.review.map(review => (
-            <p key={review._id}>
+            <p className="review" key={review._id}>
 
-                <span className="font-weight-bold">{
+                <span style={{color:"pink", fontWeight: "bold", fontSize:"20px"}} className="font-weight-bold">{
                     review.user ? review.user.name : ""
                 }</span>:{" "}
                 {review.content}
@@ -40,15 +40,18 @@ class ActorImage extends Component {
                 <LikeActor  hiddenReview={this.props.hiddenReview}
                  actor={this.props.actor}
                  addLike={this.props.addLike}/>
-                <h5>Name: {this.props.actor.name}</h5>
-                <span>Date of birth: {this.props.actor.dob}</span>
-                <div>Nationality: {this.props.actor.nationality}</div>
+                <h5>{this.props.actor.name}<span>({this.props.actor.dob})</span></h5>
+                
+                <div>Quốc gia: {this.props.actor.nationality}</div>
+                
                 <MovieInActor
                 hiddenReview={this.props.hiddenReview}
                 actor={this.props.actor} 
                />
-               <p>Review:</p>
-                {this.props.hiddenReview ? "" : reviews}
+              
+                {this.props.hiddenReview ? "" :  <p><h2>Review</h2>
+                    <br/> {reviews}
+                </p> }
             </div>
         );
     }

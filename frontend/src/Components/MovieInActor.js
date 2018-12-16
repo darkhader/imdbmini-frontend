@@ -61,6 +61,7 @@ class MovieInActor extends Component {
         return (
             this.props.hiddenReview ? "" :
                 <div className="container">
+                <h2>Phim đã đóng</h2>
                     <ul className="movie_image row" style={{width: "1050", height: "200px", overflow:" auto"}}>
                         {movies}
                     </ul>
