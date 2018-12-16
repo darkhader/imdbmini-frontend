@@ -46,7 +46,7 @@ class AddActor extends Component {
 
                     console.log(response.data);
                     if (response.data.success) {
-                        window.location.href = "/";
+                        window.location.href = "https://imdb-frontend.herokuapp.com/addNew";
                     }
                 })
                 .catch(err => console.log(err))
