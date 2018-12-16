@@ -14,7 +14,7 @@ export default class Sort extends React.Component {
     render() {
         return (
             <div className="row">
-            <div className="col-3">
+            <div className="col-11 d-flex justify-content-end">
                 <FormGroup>
                     <Label for="exampleSelect">Sắp xếp</Label>
                     <Input xs="3" type="select" name="select" id="exampleSelect" onChange={this.handleInputChange}>
