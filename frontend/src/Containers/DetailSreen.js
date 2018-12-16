@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "../axios";
 import { ROOT_API } from '../statics';
-
+import Loading from "../Components/Loading";
 import MovieImage from "../Components/MovieImage";
 import TextArea from "../Components/TextArea";
 import NavBar from "../Components/NavBar";
@@ -11,7 +11,8 @@ class DetailScreen extends Component {
         super(props);
 
         this.state = {
-            visible: false, movieId: this.props.match.params.movieId
+            visible: false, movieId: this.props.match.params.movieId,
+            loading: false
         };
 
         this.onDismiss = this.onDismiss.bind(this);
@@ -62,6 +63,10 @@ class DetailScreen extends Component {
     }
 
     addActor = (actor) => {
+        this.setState({
+            loading: true,
+
+        }); 
         const { movie } = this.state;
         console.log(actor, movie)
         axios
@@ -78,10 +83,8 @@ class DetailScreen extends Component {
                     }
                     )
                     .then(response => {
-                        // this.setState({
-                        //     movie: response.data.movie,
 
-                        // });            
+                                  
                         // window.location.href = `http://localhost:3000/movies/${this.props.match.params.movieId}`
 
 
@@ -90,12 +93,15 @@ class DetailScreen extends Component {
                     .catch(err => console.error(err));
                 // });      
 
-                this.setState({
-                    visible: true
+                if (response.data.success) {
+                    this.setState({
+                        visible: true,
+                        loading: false
+                    });
 
-                });
+                    window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
+                }
 
-                window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
 
 
 
@@ -103,6 +109,9 @@ class DetailScreen extends Component {
             .catch(err => console.error(err));
     }
     addLike = (like) => {
+        this.setState({
+            loading:true
+        })
         const { movie } = this.state;
         console.log(like, movie)
         axios
@@ -111,8 +120,15 @@ class DetailScreen extends Component {
             }
             )
             .then(response => {
+                if (response.data.success) {
+                    this.setState({
+                        visible: true,
+                        loading: false
+                    });
 
-                window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
+                    window.location.href = `http://imdb-frontend.herokuapp.com/movies/${this.props.match.params.movieId}`
+                }
+               
 
 
 
@@ -123,6 +139,7 @@ class DetailScreen extends Component {
         this.setState({ visible: false });
     }
     render() {
+        const {loading} = this.state;
         return (
             <div>
                 <NavBar
@@ -136,6 +153,8 @@ class DetailScreen extends Component {
                 <Alert color="info" isOpen={this.state.visible} toggle={this.onDismiss}>
                     Cap nhat actor thanh cong
       </Alert>
+      {loading ? <div className="text-center"><Loading /></div>
+        :
                 <div className="main_content container">
                     <div className="row">
                         <div className="col-8 mr-auto ml-auto">
@@ -161,7 +180,9 @@ class DetailScreen extends Component {
                         </div>
                     </div>
                 </div>
+      }
             </div>
+                            
         );
     }
 }

@@ -13,7 +13,7 @@ class ActorInMovie extends Component {
     }
     componentDidMount() {
         axios
-            .get(`${ROOT_API}/api/actors/`)
+            .get(`${ROOT_API}/api/actors`)
             .then(data => {
                 this.setState({
                     actors: data.data.actors
