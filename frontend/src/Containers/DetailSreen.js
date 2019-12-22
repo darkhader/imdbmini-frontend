@@ -5,7 +5,7 @@ import Loading from "../Components/Loading";
 import MovieImage from "../Components/MovieImage";
 import TextArea from "../Components/TextArea";
 import NavBar from "../Components/NavBar";
-import ImageAds from "../Components/ImageAds";
+
 import { Alert } from 'reactstrap';
 
 
