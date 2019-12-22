@@ -5,7 +5,9 @@ import axios from "../axios";
 import ActorInMovie from "./ActorInMovie";
 import LikeDisLike from "./LikeDisLike";
 import Trailer from "./Trailer";
+import Banner from 'react-js-banner';
 class MovieImage extends Component {
+   
     componentDidMount() {
 
         axios({
