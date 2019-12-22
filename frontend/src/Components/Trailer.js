@@ -69,17 +69,17 @@ export default class Trailer extends Component {
                         <a className="" onClick={this._onClick}>X</a>
 
                     </div>
-                    <a href="http://google.com"  target="_blank" style={{
+                    <a href="http://google.com" target="_blank" style={{
                         color: "#FFF",
                         position: "absolute",
                         top: "0",
                         width: "100%",
                         height: "100%",
                         left: "0",
-                        visibility: this.state.visible1 
+                        visibility: this.state.visible1
                     }} onClick={this._onClick1}>
                         <div>
-                            Hello world
+
                         </div>
                     </a>
 
